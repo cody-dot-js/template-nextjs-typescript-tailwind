@@ -1,37 +1,10 @@
 module.exports = {
-  purge: ["./components/**/*.tsx", "./pages/**/*.tsx"],
-  plugins: [require("@tailwindcss/forms")],
+  purge: ["./pages/**/*.{js,jsx,ts,tsx}", "./components/**/*.{js,jsx,ts,tsx}"],
+  plugins: [require("@tailwindcss/forms"), require("@tailwindcss/typography")],
   theme: {
-    extend: {
-      colors: {
-        "accent-1": "#FAFAFA",
-        "accent-2": "#EAEAEA",
-        "accent-7": "#333",
-        success: "#0070f3",
-        cyan: "#79FFE1",
-      },
-      gridTemplateColumns: {
-        3: "1fr min(80ch, calc(100% - 2rem)) 1fr",
-      },
-      spacing: {
-        28: "7rem",
-      },
-      letterSpacing: {
-        tighter: "-.04em",
-      },
-      lineHeight: {
-        tight: 1.2,
-      },
-      fontSize: {
-        "5xl": "2.5rem",
-        "6xl": "2.75rem",
-        "7xl": "4.5rem",
-        "8xl": "6.25rem",
-      },
-      boxShadow: {
-        small: "0 5px 10px rgba(0, 0, 0, 0.12)",
-        medium: "0 8px 30px rgba(0, 0, 0, 0.12)",
-      },
-    },
+    extend: {},
+  },
+  variants: {
+    extend: {},
   },
 };
