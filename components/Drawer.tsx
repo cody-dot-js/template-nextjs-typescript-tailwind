@@ -1,14 +1,21 @@
 import * as React from "react";
 import { Transition } from "@headlessui/react";
 
-interface Props {
+export interface DrawerProps {
   children?: React.ReactNode;
   title?: React.ReactNode;
   isOpen?: boolean;
   onClose?: () => void;
+  footer?: React.ReactNode;
 }
 
-export function Drawer({ children, title, isOpen = false, onClose }: Props) {
+export function Drawer({
+  children,
+  title,
+  isOpen = false,
+  onClose,
+  footer,
+}: DrawerProps) {
   return (
     <Transition show={isOpen}>
       <div className="fixed inset-0 overflow-hidden z-40">
@@ -26,7 +33,7 @@ export function Drawer({ children, title, isOpen = false, onClose }: Props) {
             aria-hidden="true"
           />
           <section
-            className="absolute inset-y-0 right-0 pl-10 max-w-full flex"
+            className="absolute inset-y-0 right-0 max-w-full flex"
             aria-labelledby="slide-over-heading"
           >
             {/* Slide-over panel, show/hide based on slide-over state. */}
@@ -39,20 +46,17 @@ export function Drawer({ children, title, isOpen = false, onClose }: Props) {
               leaveFrom="translate-x-0"
               leaveTo="translate-x-full"
             >
-              <div className="h-full flex flex-col pt-4 pb-6 bg-white shadow-xl overflow-y-scroll">
-                <div className="flex justify-between px-4 sm:px-6">
-                  <h2
-                    id="slide-over-heading"
-                    className="text-lg font-medium text-gray-900"
-                  >
-                    {title}
-                  </h2>
+              <div className="flex flex-col flex-nowrap h-full bg-white shadow-xl">
+                <div className="flex justify-between border border-gray-200 border-t-0 border-l-0 border-r-0 py-4 px-4">
+                  <h2 className="text-lg font-medium text-gray-900">{title}</h2>
                   <CloseButton onClose={onClose} />
                 </div>
-                <hr className="mt-4 border-gray-200 border-1" />
-                <div className="mt-6 relative flex-1 px-4 sm:px-6">
+                <div className="flex-grow overflow-auto relative">
                   {children}
                 </div>
+                <footer className="flex-shrink-0 p-4 border border-gray-200 border-l-0 border-r-0 border-b-0">
+                  {footer}
+                </footer>
               </div>
             </Transition.Child>
           </section>
