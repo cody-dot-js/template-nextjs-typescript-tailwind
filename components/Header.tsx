@@ -16,6 +16,7 @@ export const Header = ({ children, className }: Props) => (
     <div className="flex items-center	justify-between max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
       <Link href="/">
         <img
+          alt="application icon"
           className="cursor-pointer mr-4"
           src="/shotsearch_icon.png"
           width="32"
