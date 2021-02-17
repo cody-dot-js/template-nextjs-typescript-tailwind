@@ -1,2 +1,6 @@
 node_modules
 .next
+.*
+yarn.*
+public/sw.js
+public/workbox*

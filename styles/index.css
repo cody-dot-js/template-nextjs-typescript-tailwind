@@ -1,6 +1,23 @@
+@import "microtip";
+
 @tailwind base;
 
 /* Write your own custom base styles here */
+
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
 
 /* Start purging... */
 @tailwind components;
@@ -15,6 +32,31 @@
 .full-bleed {
   grid-column: 1 / 4;
   width: 100%;
+}
+
+.headingLink {
+  text-decoration: none;
+}
+
+.headingLink::before {
+  display: block;
+  content: "&nbsp;";
+  margin-top: -2rem;
+  height: 2rem;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.headingLink:hover {
+  text-decoration: none;
+}
+
+a.headingLink {
+  text-decoration: none;
+}
+
+.max-w-80ch {
+  max-width: 80ch;
 }
 
 /* Start purging... */
