@@ -10,6 +10,16 @@ module.exports = {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        "gradient-conic-tr":
+          "conic-gradient(at top right, var(--tw-gradient-stops))",
+        "gradient-conic-tl":
+          "conic-gradient(at top left, var(--tw-gradient-stops))",
+        "gradient-conic-br":
+          "conic-gradient(at bottom right, var(--tw-gradient-stops))",
+        "gradient-conic-bl":
+          "conic-gradient(at bottom left, var(--tw-gradient-stops))",
+      },
       colors: {
         ...colors,
         "gray-950": "#121212",
